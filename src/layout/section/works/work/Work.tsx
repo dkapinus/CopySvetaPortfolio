@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
+import {Link} from "components/Link";
+import {Theme} from "styles/Theme";
+import {Button} from "components/button/Button";
 
 
 type WorkPropsType = {
@@ -12,20 +15,70 @@ type WorkPropsType = {
 export const Work: React.FC<WorkPropsType> = ({image, title, text, ...props}) => {
     return (
         <StyledWork>
-            <Image src={image} alt=''/>
-            <StyledTitleWork>{title}</StyledTitleWork>
-            <StyledTextWork>{text}</StyledTextWork>
-            <StyledLink href={""}>Demo</StyledLink>
-            <StyledLink href={""}>Code</StyledLink>
+            <ImageWrapper>
+                <Image src={image} alt=''/>
+                <Button>view project</Button>
+            </ImageWrapper>
+            <Description>
+                <TitleWork>{title}</TitleWork>
+                <TextWork>{text}</TextWork>
+                <Link href={""}>Demo</Link>
+                <Link href={""}>Code</Link>
+            </Description>
+
 
         </StyledWork>
     );
 };
 
 const StyledWork = styled.div`
-  background-color: orange;
+  background: ${Theme.colors.secondaryBg};
   width: 40%;
 
+
+  ${Link} {
+    padding: 10px 0;
+
+    & + ${Link} {
+      margin-left: 10px;
+    }
+  }
+
+`
+
+const ImageWrapper = styled.div`
+  position: relative;
+
+    &:hover {
+      ${Button}{
+        opacity: 1;
+      }
+
+    &::before {
+      content: "";
+      background: rgba(0, 0, 0, 0.30);
+      backdrop-filter: blur(4px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+     
+  }
+
+  ${Button}{
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 50%;
+    opacity: 0;
+    &::before{
+      height: 100%;
+      width: 100%;
+    }
+  }
 `
 const Image = styled.img`
   width: 100%;
@@ -34,40 +87,21 @@ const Image = styled.img`
 
 `
 
-const StyledTitleWork = styled.div`
-  color: #FFF;
-  font-family: Josefin Sans;
+const TitleWork = styled.h3`
+  font-family: Josefin Sans, sans-serif;
   font-size: 16px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: 1px;
 `
 
-const StyledTextWork = styled.div`
-  width: 500px;
-  height: 63px;
-  flex-shrink: 0;
-  color: #FFF;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`
-const StyledLink = styled.a`
+const TextWork = styled.p`
+  margin: 14px 0 10px;
+  width: 100%;
 
-  width: 44px;
-  height: 12px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #FFF;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+
+`
+const Description = styled.div`
+  padding: 25px 20px;
+
+
 `

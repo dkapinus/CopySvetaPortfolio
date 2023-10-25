@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {Link} from "components/Link";
 
 
 type MenuPropsType = {
@@ -8,7 +9,7 @@ type MenuPropsType = {
 
 
 
-export const Menu:React.FC<MenuPropsType> = ({item,...props}) => {
+export const TabMenu:React.FC<MenuPropsType> = ({item,...props}) => {
 
     return (
         <StyledMenu>
@@ -16,7 +17,7 @@ export const Menu:React.FC<MenuPropsType> = ({item,...props}) => {
                 {item.map((el,index)=>{
                     return (
 
-                        <li key={index}><a href="">{el}</a></li>
+                        <li key={index}><Link href="layout/section/works/tabMenu/TabMenu.tsx">{el}</Link></li>
 
                     )
                 })}
@@ -30,10 +31,15 @@ export const Menu:React.FC<MenuPropsType> = ({item,...props}) => {
 
 
 const StyledMenu = styled.nav`
+
+margin-bottom: 40px;
+  
+  
     ul {
       display: flex;
-      gap:30px;
+      gap:20px;
       justify-content: center;
       
     }
 `
+

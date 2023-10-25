@@ -1,13 +1,21 @@
 import React from 'react';
 import styled from "styled-components";
 import {StyledSectionTitle} from "components/StyledTitileLevelTwo";
-import {Button} from "components/slider/Button/Button";
+import {Button} from "components/button/Button";
+import {Container} from "components/Container";
+import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 
 export const Slogan = () => {
     return (
         <SloganStyled>
-<StyledSectionTitle>I Am Available For Freelance</StyledSectionTitle>
-            <Button>Hire me</Button>
+            <Container>
+                <FlexWrapper justify={"center"} align={"center"} direction={"column"} >
+                    <StyledSectionTitle>I Am Available For Freelance</StyledSectionTitle>
+                    <Button>Hire me</Button>
+                </FlexWrapper>
+            </Container>
+
+
         </SloganStyled>
     );
 };
@@ -15,9 +23,6 @@ export const Slogan = () => {
 const SloganStyled = styled.section`
   background-color: brown;
   min-height: 30vh;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  
 `

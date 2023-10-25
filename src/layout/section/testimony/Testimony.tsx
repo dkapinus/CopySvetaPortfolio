@@ -4,19 +4,22 @@ import {StyledSectionTitle} from "components/StyledTitileLevelTwo";
 import {Icon} from "components/icon/Icon";
 import {Slider} from "components/slider/Slider";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
+import {Container} from "components/Container";
 
 
 export const Testimony = () => {
     return (
         <StyledTestimony>
 
+            <Container>
                 <StyledSectionTitle>Testimony</StyledSectionTitle>
-            <FlexWrapper justify={"center"} direction={"column"} align={"center"} >
+                <FlexWrapper justify={"center"} direction={"column"} align={"center"}>
+                    <ImageWrapper><Icon IconId={"testimony"}/></ImageWrapper>
 
-                <Icon IconId={"testimony"}/>
-                <Slider/>
-            </FlexWrapper>
+                    <Slider/>
+                </FlexWrapper>
 
+            </Container>
 
 
         </StyledTestimony>
@@ -24,8 +27,26 @@ export const Testimony = () => {
 };
 
 const StyledTestimony = styled.section`
- 
-  background-color: dodgerblue;
+
+
   min-height: 50vh;
-  
+
+`
+const ImageWrapper = styled.div`
+  position: relative;
+  margin:  40px 0 72px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg) translate(-50%,-50%);
+    transform-origin: top left;
+    background: rgba(255, 255, 255, 0.10);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
 `

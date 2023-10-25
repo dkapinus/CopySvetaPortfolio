@@ -1,6 +1,7 @@
 import React from 'react';
 import {Icon} from "components/icon/Icon";
 import styled from "styled-components";
+import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 
 type SkillPropsType = {
     title: string
@@ -12,9 +13,13 @@ type SkillPropsType = {
 export const Skill: React.FC<SkillPropsType> = ({title, text, id, ...props}) => {
     return (
         <StyledSkill>
-            <Icon IconId={id}/>
-            <StyledSkillTitle>{title}</StyledSkillTitle>
-            <StyledSkillText>{text}</StyledSkillText>
+            <FlexWrapper direction={"column"} align={"center"}>
+                <IconWrapper>
+                    <Icon IconId={id}/>
+                </IconWrapper>
+                <StyledSkillTitle>{title}</StyledSkillTitle>
+                <StyledSkillText>{text}</StyledSkillText>
+            </FlexWrapper>
 
         </StyledSkill>
     );
@@ -22,23 +27,40 @@ export const Skill: React.FC<SkillPropsType> = ({title, text, id, ...props}) => 
 
 
 const StyledSkill = styled.div`
-  width: 30%;
-  background-color: pink;
-  margin: 10px;
+  width: 300px;
+  padding: 62px 20px 40px;
 `
 
 
 const StyledSkillTitle = styled.h3`
-
+  margin: 70px 0 15px;
+  text-transform: uppercase;
 `
 
 const StyledSkillText = styled.p`
- 
-  color: #FFF;
+
+
   text-align: center;
-  font-family: Poppins;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.4;
+
+`
+
+const IconWrapper = styled.div`
+  position: relative;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg) translate(-50%,-50%);
+    transform-origin: top left;
+    background: rgba(255, 255, 255, 0.10);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
 `
