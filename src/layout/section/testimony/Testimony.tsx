@@ -13,7 +13,7 @@ export const Testimony = () => {
 
             <Container>
                 <StyledSectionTitle>Testimony</StyledSectionTitle>
-                <FlexWrapper justify={"center"} direction={"column"} align={"center"}>
+                <FlexWrapper  direction={"column"} align={"center"}>
                     <ImageWrapper><Icon IconId={"testimony"}/></ImageWrapper>
 
                     <Slider/>
@@ -26,15 +26,9 @@ export const Testimony = () => {
     );
 };
 
-const StyledTestimony = styled.section`
-
-
-  min-height: 50vh;
-
-`
 const ImageWrapper = styled.div`
   position: relative;
-  margin:  40px 0 72px;
+ 
 
   &::before {
     content: "";
@@ -50,3 +44,14 @@ const ImageWrapper = styled.div`
     top: 50%;
   }
 `
+
+const StyledTestimony = styled.section`
+  
+  min-height: 50vh;
+  
+  ${ImageWrapper}{
+    margin:  40px 0 72px;
+  }
+
+`
+

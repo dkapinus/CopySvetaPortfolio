@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon} from "components/icon/Icon";
 import styled from "styled-components";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
+import {Theme} from "styles/Theme";
 
 type SkillPropsType = {
     title: string
@@ -27,8 +28,13 @@ export const Skill: React.FC<SkillPropsType> = ({title, text, id, ...props}) => 
 
 
 const StyledSkill = styled.div`
-  width: 300px;
+  width: 330px;
+  flex-grow: 1;
   padding: 62px 20px 40px;
+  
+  @media ${Theme.media.mobile} {
+    padding: 62px 0px 40px;
+  }
 `
 
 

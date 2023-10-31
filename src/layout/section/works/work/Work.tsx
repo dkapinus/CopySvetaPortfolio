@@ -33,7 +33,8 @@ export const Work: React.FC<WorkPropsType> = ({image, title, text, ...props}) =>
 
 const StyledWork = styled.div`
   background: ${Theme.colors.secondaryBg};
-  width: 40%;
+  width: 330px;
+  flex-grow: 1;
 
 
   ${Link} {
@@ -43,29 +44,15 @@ const StyledWork = styled.div`
       margin-left: 10px;
     }
   }
-
+ @media ${Theme.media.desktop} {
+   max-width: 540px;
+ }
 `
 
 const ImageWrapper = styled.div`
   position: relative;
 
-    &:hover {
-      ${Button}{
-        opacity: 1;
-      }
 
-    &::before {
-      content: "";
-      background: rgba(0, 0, 0, 0.30);
-      backdrop-filter: blur(4px);
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-     
-  }
 
   ${Button}{
 
@@ -79,6 +66,44 @@ const ImageWrapper = styled.div`
       width: 100%;
     }
   }
+
+  &::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+ 
+  
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+
+    ${Button}{
+      opacity: 1;
+    }
+
+  }
+
+
+  @media ${Theme.media.tablet} {
+    &::before {
+      opacity: 1;
+    }
+
+    ${Button}{
+      opacity: 1;
+    }
+  }
+
+
 `
 const Image = styled.img`
   width: 100%;

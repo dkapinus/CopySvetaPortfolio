@@ -41,11 +41,16 @@ export const HeaderMenu: React.FC<HeaderMenuPropsType> = ({item, ...props}) => {
 
 
 const HeaderStyledMenu = styled.nav`
+  
   ul {
     display: flex;
     gap: 30px;
     justify-content: center;
 
+  }
+  
+  @media ${Theme.media.tablet} {
+    display: none;
   }
 `
 

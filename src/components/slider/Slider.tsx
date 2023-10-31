@@ -48,8 +48,7 @@ const Slide = styled.div`
 const Text = styled.p``
 
 const Name = styled.span`
-
-  text-align: center;
+  
   font-family: Josefin Sans,sans-serif;
   font-size: 16px;
   font-weight: 600;

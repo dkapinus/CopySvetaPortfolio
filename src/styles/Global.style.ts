@@ -3,7 +3,7 @@ import {Theme} from "styles/Theme";
 
 export const GlobalStyle = createGlobalStyle`
   *,
-  *::before
+  *::before,
   *::after{
     margin: 0;
     padding: 0;
@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     color: ${Theme.colors.font};
     line-height: 1.2;
+    min-width: 360px;
   }
   
   a {
@@ -40,6 +41,10 @@ export const GlobalStyle = createGlobalStyle`
   
   section {
     padding: 100px 0;
+    
+    @media ${Theme.media.mobile} {
+      padding: 80px 0;
+    }
   }
   section:nth-of-type(odd) {
     background-color: ${Theme.colors.primaryBg};
