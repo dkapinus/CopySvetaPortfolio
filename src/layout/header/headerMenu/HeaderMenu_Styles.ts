@@ -1,57 +1,9 @@
-import React from 'react';
 import styled, {css} from "styled-components";
 import {Theme} from "styles/Theme";
 
 
-type HeaderMenuPropsType = {
-    item: string[]
-}
 
-
-export const MobileMenu: React.FC<HeaderMenuPropsType> = ({item, ...props}) => {
-
-    return (
-        <StyledMobileMenu>
-            <BurgerButton isOpen={false}><span></span></BurgerButton>
-            <MobileMenuPopup isOpen={false}>
-                <ul>
-                    {item.map((item, index) => {
-                        return (
-
-                            <ListItem key={index}><Link href="">
-                                {item}
-                                <Mask>
-                                <span>
-                                  {item}
-                                </span>
-                                </Mask>
-                                <Mask>
-                                <span>
-                                    {item}
-                                </span>
-                                </Mask>
-                            </Link></ListItem>
-
-                        )
-                    })}
-                </ul>
-            </MobileMenuPopup>
-
-
-        </StyledMobileMenu>
-    );
-};
-
-
-const StyledMobileMenu = styled.nav`
-  display: none;
-
-  @media ${Theme.media.tablet} {
-    display: block;
-   
-  }
-`
-
+//Mobile
 const BurgerButton = styled.button<{ isOpen: boolean }>`
   position: fixed;
   top: -100px;
@@ -109,6 +61,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     }
   }
 `
+
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
@@ -134,6 +87,14 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   }
 `
 
+const MobileMenu = styled.nav`
+  
+`
+
+
+//Menu
+
+
 const Mask = styled.span`
   position: absolute;
   top: 0;
@@ -154,7 +115,8 @@ const Mask = styled.span`
   }
 `
 
-const ListItem = styled.li`
+
+const MenuItem = styled.li`
   position: relative;
 
 
@@ -191,7 +153,7 @@ const ListItem = styled.li`
   }
 `
 
-const Link = styled.a`
+const MenuLink = styled.a`
   text-align: center;
   font-family: Josefin Sans, sans-serif;
   font-size: 30px;
@@ -199,3 +161,22 @@ const Link = styled.a`
   color: transparent;
 `
 
+//DesktopMenu
+
+const DesktopMenu = styled.nav`
+  
+  ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+  }
+  
+  @media ${Theme.media.tablet} {
+    display: none;
+  }
+`
+
+
+
+export const S ={BurgerButton,MobileMenuPopup,MobileMenu,Mask,MenuItem,MenuLink,DesktopMenu}

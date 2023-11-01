@@ -1,33 +1,53 @@
 import React from 'react';
-import styled from "styled-components";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 import {StyledSectionTitle} from "components/StyledTitileLevelTwo";
 import {Skill} from "layout/section/skills/skill/Skill";
 import {Container} from "components/Container";
+import {S} from "layout/section/skills/SkillsStyled"
 
-export const Skills = () => {
+
+
+const SkillsData = [
+    {id:"codeSvg",
+        title:"html5"},
+    {id:"css",
+        title:"css3"},
+    {id:"react",
+        title:"React"},
+    {id:"typescript",
+        title:"typescript"},
+    {id:"styledComponents",
+        title:"styled components"},
+    {id:"figma",
+        title:"figma"},
+
+
+]
+
+
+
+export const Skills:React.FC = () => {
     return (
-        <StyledSkills>
+        <S.Skills>
             <Container>
                 <StyledSectionTitle>My Skills</StyledSectionTitle>
 
                 <FlexWrapper wrap={"wrap"} justify={"space-between"}>
-                    <Skill title={"html5"}  id={"codeSvg"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
-                    <Skill title={"css3"}  id={"css"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
-                    <Skill title={"React"}  id={"react"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
-                    <Skill title={"typescript"}  id={"typescript"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
-                    <Skill title={"styled components"}  id={"styledComponents"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
-                    <Skill title={"figma"}  id={"figma"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim"}/>
+
+                    {SkillsData.map((el,index)=> {
+                      return (
+                          <Skill title={el.title} id={el.id} text={"Lorem ipsum dolor sit amet," +
+                              " consectetur adipisicing elit, sed do eiusmod tempor incididunt ut " +
+                              "labore et dolore magna aliqua Ut enim"} key={index}/>
+                      )
+                    })}
+
                 </FlexWrapper>
             </Container>
 
-        </StyledSkills>
+        </S.Skills>
     );
 };
 
-const StyledSkills = styled.section`
-  background-color: rebeccapurple;
-  
-`
 
 

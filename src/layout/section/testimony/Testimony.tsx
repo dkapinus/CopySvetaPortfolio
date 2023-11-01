@@ -5,49 +5,29 @@ import {Icon} from "components/icon/Icon";
 import {Slider} from "components/slider/Slider";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 import {Container} from "components/Container";
+import {S} from "layout/section/skills/SkillsStyled"
 
 
-export const Testimony = () => {
+export const Testimony:React.FC = () => {
     return (
         <StyledTestimony>
 
             <Container>
                 <StyledSectionTitle>Testimony</StyledSectionTitle>
                 <FlexWrapper  direction={"column"} align={"center"}>
-                    <ImageWrapper><Icon IconId={"testimony"}/></ImageWrapper>
-
+                    <S.IconWrapper><Icon IconId={"testimony"}/></S.IconWrapper>
                     <Slider/>
                 </FlexWrapper>
-
             </Container>
-
         </StyledTestimony>
     );
 };
 
-const ImageWrapper = styled.div`
-  position: relative;
- 
-
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    transform: rotate(45deg) translate(-50%,-50%);
-    transform-origin: top left;
-    background: rgba(255, 255, 255, 0.10);
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-  }
-`
 
 const StyledTestimony = styled.section`
   min-height: 50vh;
   
-  ${ImageWrapper}{
+  ${S.IconWrapper}{
     margin:  28px 0 72px;
   }
 

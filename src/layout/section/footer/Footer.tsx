@@ -1,88 +1,33 @@
 import React from 'react';
-import styled from "styled-components";
 import {Icon} from "components/icon/Icon";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
-import {Theme} from "styles/Theme";
-import {font} from "styles/Common";
+import {S} from "layout/section/footer/Footer_Styles"
+
+
+const FooterData = ["instagram","telegram","vk","linkedin"]
 
 export const Footer = () => {
     return (
-        <StyledFooter>
+        <S.Footer>
             <FlexWrapper direction={"column"} align={"center"}>
-                <Name>Dima</Name>
+                <S.Name>Dima</S.Name>
 
-                <SocialList>
-                    <SocialItem> <SocialLink><Icon height={"21px"} width={"21px"} viewBox={"0 0 21 21"}
-                                                   IconId={"instagram"}/></SocialLink> </SocialItem>
-                    <SocialItem> <SocialLink><Icon height={"21px"} width={"21px"} viewBox={"0 0 21 21"}
-                                                   IconId={"telegram"}/></SocialLink></SocialItem>
-                    <SocialItem><SocialLink><Icon height={"21px"} width={"21px"} viewBox={"0 0 21 21"}
-                                                  IconId={"vk"}/></SocialLink></SocialItem>
-                    <SocialItem><SocialLink><Icon height={"21px"} width={"21px"} viewBox={"0 0 21 21"}
-                                                  IconId={"linkedin"}/></SocialLink> </SocialItem>
-                </SocialList>
+                <S.SocialList>
+                        {FooterData.map((el,index)=> {
+                            return (
+                                <S.SocialItem>
+                                <S.SocialLink>
+                                <Icon  key={index} height={"21px"} width={"21px"} viewBox={"0 0 21 21"}
+                                      IconId={el}/>
+                                </S.SocialLink>
+                                </S.SocialItem>
+                            )
+                        })}
 
-
-                <FooterText>© 2023 Kapinus Dima, All Rights Reserved.</FooterText>
+                </S.SocialList>
+                <S.FooterText>© 2023 Kapinus Dima, All Rights Reserved.</S.FooterText>
             </FlexWrapper>
-
-
-        </StyledFooter>
+        </S.Footer>
     );
 };
 
-const StyledFooter = styled.footer`
-  padding: 40px 0;
-  background-color: ${Theme.colors.primaryBg};
-
-
-}
-
-`
-
-const SocialList = styled.div`
-  display: flex;
-  gap: 20px;
-  margin: 30px 0;
-`
-
-const FooterText = styled.div`
-  opacity: 0.5;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-
-`
-
-const Name = styled.div`
-  ${font({family: "Josefin Sans, sans-serif", weight: 700, Fmax: 22, Fmin: 16})}
-
-  letter-spacing: 3px;
-`
-
-const SocialItem = styled.ul`
-  
-`
-
-const SocialLink = styled.a`
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.10);
-  color: ${Theme.colors.accent};
-
-  &:hover {
-    background-color: ${Theme.colors.accent};
-    color: ${Theme.colors.primaryBg};
-    transform: translateY(-4px);
-  }
-
-
-
-
-`

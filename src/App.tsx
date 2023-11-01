@@ -8,12 +8,14 @@ import {Slogan} from "layout/section/slogan/slogan";
 import {Footer} from "layout/section/footer/Footer";
 
 
+
+
 function App() {
     return (
         <div>
            <Header/>
             <Main/>
-            <Skills/>
+            <Skills />
             <Works/>
             <Testimony/>
             <Contact/>
