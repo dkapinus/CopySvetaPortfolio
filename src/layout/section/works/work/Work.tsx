@@ -32,6 +32,7 @@ export const Work: React.FC<WorkPropsType> = ({image, title, text, ...props}) =>
 };
 
 const StyledWork = styled.div`
+
   background: ${Theme.colors.secondaryBg};
   width: 330px;
   flex-grow: 1;
@@ -50,6 +51,7 @@ const StyledWork = styled.div`
 `
 
 const ImageWrapper = styled.div`
+ 
   position: relative;
 
 

@@ -21,7 +21,6 @@ export const Testimony = () => {
 
             </Container>
 
-
         </StyledTestimony>
     );
 };
@@ -46,11 +45,10 @@ const ImageWrapper = styled.div`
 `
 
 const StyledTestimony = styled.section`
-  
   min-height: 50vh;
   
   ${ImageWrapper}{
-    margin:  40px 0 72px;
+    margin:  28px 0 72px;
   }
 
 `

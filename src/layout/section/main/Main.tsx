@@ -42,7 +42,7 @@ const PhotoMe = styled.img`
 const PhotoWrapper = styled.div`
   position: relative;
   z-index: 1;
-  margin-top: 65px;
+  
   
   &::before {
     content: "";
@@ -61,6 +61,9 @@ const PhotoWrapper = styled.div`
       left: 20px;
 
     }
+  }
+  @media ${Theme.media.mobile} {
+    margin-top: 65px;
   }
 `
 const StyledMain = styled.section`
