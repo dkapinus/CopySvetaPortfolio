@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from "styled-components";
-import {Theme} from "styles/Theme";
 import {Menu} from "layout/header/headerMenu/menu/Menu";
 import {S} from  "layout/header/headerMenu/HeaderMenu_Styles"
 

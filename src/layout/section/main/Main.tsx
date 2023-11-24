@@ -7,6 +7,7 @@ import {S} from "layout/section/main/MainStyles"
 
 
 export const Main:React.FC = () => {
+    
     return (
         <S.Main>
             <Container>
