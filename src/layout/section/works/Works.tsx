@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyledSectionTitle} from "components/StyledTitileLevelTwo";
-import {TabMenu} from "layout/section/works/tabMenu/TabMenu";
+import {TabMenu, TabMenuPropsType} from "layout/section/works/tabMenu/TabMenu";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 import {Work} from "layout/section/works/work/Work";
 import imageWork from "../../../../src/assets/images/Rectangle 14.png"
@@ -8,32 +8,61 @@ import imageWork1 from "../../../../src/assets/images/Rectangle 14 (1).png"
 import {Container} from "components/Container";
 import {S} from "layout/section/works/WorksStyled"
 
-const WorksItem = ["ALL", "LANDING PAGE ", "REACT", "SPA"]
 
-const WorkData =[
-    {image:imageWork,title:'Social Network'},
-    {image:imageWork1,title:'Timer'},
+export type StatusPropsType = "ALL" | "LANDING PAGE" | "REACT" | "SPA"
+
+
+const WorksItem: TabMenuPropsType[] = [{title: "ALL", type: "ALL"},
+    {title: "LANDING PAGE", type: "LANDING PAGE"},
+    {title: "REACT", type: "REACT"},
+    {title: "SPA", type: "SPA"},
+]
+
+const WorkData = [
+    {image: imageWork, title: 'Social Network', type: "SPA"},
+    {image: imageWork1, title: 'Timer', type: "REACT"},
 
 
 ]
 
 export const Works = () => {
 
+    const [type, setType] = useState<StatusPropsType>("ALL")
+
+    const filteredTabMenu = (type: StatusPropsType) => {
+
+        setType(type)
+    }
+
+    let FilteredData = WorkData
+
+    if (type === "LANDING PAGE") {
+        FilteredData = WorkData.filter((el) => el.type === type)
+    }
+    if (type === "SPA") {
+        FilteredData = WorkData.filter((el) => el.type === type)
+    }
+    if (type === "REACT") {
+        FilteredData = WorkData.filter((el) => el.type === type)
+    }
+
 
     return (
         <S.Works>
-           <Container>
-               <StyledSectionTitle>My Works</StyledSectionTitle>
-               <TabMenu item={WorksItem}/>
-               <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"} >
-                   {WorkData.map((el,index)=> {
-                       return ( <Work  key={index} image={el.image} title={el.title} text={"Lorem ipsum dolor sit amet," +
-                           " consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
-                           "magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}/>)
-                   })}
+            <Container>
+                <StyledSectionTitle>My Works</StyledSectionTitle>
+                <TabMenu item={WorksItem} filteredTabMenu={filteredTabMenu} currentFilterStatus={type} />
+                <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
+                    {FilteredData.map((el, index) => {
+                        return (
+                            <Work key={index} image={el.image} title={el.title} text={"Lorem ipsum dolor sit amet," +
+                                " consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
+                                "magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}
+                                  type={el.type} />)
+                    })}
 
-               </FlexWrapper>
-           </Container>
+                </FlexWrapper>
+            </Container>
         </S.Works>
     );
 };

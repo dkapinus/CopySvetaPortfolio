@@ -8,6 +8,7 @@ type WorkPropsType = {
     image: string
     title: string
     text: string
+    type:string
 }
 
 
@@ -21,11 +22,9 @@ export const Work: React.FC<WorkPropsType> = ({image, title, text, ...props}) =>
             <S.Description>
                 <S.TitleWork>{title}</S.TitleWork>
                 <S.TextWork>{text}</S.TextWork>
-                <Link href={""}>Demo</Link>
-                <Link href={""}>Code</Link>
+                <Link active >Demo</Link>
+                <Link >Code</Link>
             </S.Description>
-
-
         </S.Work>
     );
 };
