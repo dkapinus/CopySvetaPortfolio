@@ -4,11 +4,11 @@ import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 import {Container} from "components/Container";
 import {S} from "layout/section/main/MainStyles"
 import Typewriter from 'typewriter-effect';
+import Tilt from 'react-parallax-tilt';
 
 
+export const Main: React.FC = () => {
 
-export const Main:React.FC = () => {
-    
     return (
         <S.Main>
             <Container>
@@ -29,9 +29,11 @@ export const Main:React.FC = () => {
                         </S.MainTitle>
 
                     </div>
-                    <S.PhotoWrapper>
-                        <S.PhotoMe src={PhotoMain} alt=""/>
-                    </S.PhotoWrapper>
+                    <Tilt>
+                        <S.PhotoWrapper>
+                            <S.PhotoMe src={PhotoMain} alt=""/>
+                        </S.PhotoWrapper>
+                    </Tilt>
 
                 </FlexWrapper>
             </Container>
