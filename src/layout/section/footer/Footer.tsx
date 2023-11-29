@@ -25,7 +25,7 @@ export const Footer = () => {
                         })}
 
                 </S.SocialList>
-                <S.FooterText>© 2023 Kapinus Dima, All Rights Reserved.</S.FooterText>
+                <S.FooterText>© 2023 Kapinus Dzmitry, All Rights Reserved.</S.FooterText>
             </FlexWrapper>
         </S.Footer>
     );
