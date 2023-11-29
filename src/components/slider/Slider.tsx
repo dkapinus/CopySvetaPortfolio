@@ -1,30 +1,49 @@
-import React from 'react';
-import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
 import {S} from "components/slider/Slider_Styles"
+import React from 'react';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import  "../../../src/styles/slider.css"
+
+type SliderPropsType = {
+    text:string
+    userName:string
+}
 
 
-export const Slider:React.FC = () => {
+const Slide:React.FC<SliderPropsType> = ({text,userName,...props}) => {
     return (
-        <S.Slider>
-            <FlexWrapper>
+        <S.Slide>
+            <S.Text>
+                {text}
+            </S.Text>
+            <S.Name>
+                {userName}
+            </S.Name>
+        </S.Slide>
+    )
+}
 
-                <S.Slide>
-                    <S.Text>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </S.Text>
-                    <S.Name>
-                        @ivan ivanow
-                    </S.Name>
-                </S.Slide>
-            </FlexWrapper>
-                <S.Paginator>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </S.Paginator>
+const items = [
 
-        </S.Slider>
-    );
-};
+    <Slide  text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut\n" +
+        "        labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}
+    userName={" @ivan ivanow"}/>,
+    <Slide  text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut\n" +
+        "        labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}
+            userName={" @ivan ivanow"}/>,
+    <Slide  text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut\n" +
+        "        labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}
+            userName={" @ivan ivanow"}/>,
+
+];
+
+export const Slider = () => (
+    <S.Slider>
+        <AliceCarousel
+            mouseTracking
+            items={items}
+
+        />
+    </S.Slider>
+
+);
