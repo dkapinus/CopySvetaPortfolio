@@ -48,7 +48,7 @@ export const Works = () => {
 
 
     return (
-        <S.Works>
+        <S.Works id={"works"}>
             <Container>
                 <StyledSectionTitle>My Works</StyledSectionTitle>
                 <TabMenu item={WorksItem} filteredTabMenu={filteredTabMenu} currentFilterStatus={type} />

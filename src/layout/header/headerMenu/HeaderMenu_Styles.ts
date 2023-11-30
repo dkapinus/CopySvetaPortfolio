@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import {Theme} from "styles/Theme";
+import {Link} from "react-scroll";
 
 
 
@@ -118,23 +119,17 @@ const Mask = styled.span`
 
 const MenuItem = styled.li`
   position: relative;
+  
 
+ 
+`
 
-  &:hover {
-    &::before {
-      transform: scale(1);
-    }
-
-    ${Mask} {
-      transform: skewX(12deg) translateX(5px);
-      color: ${Theme.colors.font};
-
-      & + ${Mask} {
-        transform: skewX(12deg) translateX(-5px);
-      }
-    }
-
-  }
+const MenuLink = styled(Link)`
+  text-align: center;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: transparent;
 
   &::before {
     content: "";
@@ -151,14 +146,22 @@ const MenuItem = styled.li`
 
 
   }
-`
 
-const MenuLink = styled.a`
-  text-align: center;
-  font-family: Josefin Sans, sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: transparent;
+  &:hover,&.active {
+    &::before {
+      transform: scale(1);
+    }
+
+    ${Mask} {
+      transform: skewX(12deg) translateX(5px);
+      color: ${Theme.colors.font};
+
+      & + ${Mask} {
+        transform: skewX(12deg) translateX(-5px);
+      }
+    }
+
+  }
 `
 
 //DesktopMenu

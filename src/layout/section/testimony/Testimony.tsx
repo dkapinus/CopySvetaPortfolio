@@ -10,7 +10,7 @@ import {S} from "layout/section/skills/SkillsStyled"
 
 export const Testimony:React.FC = () => {
     return (
-        <StyledTestimony>
+        <StyledTestimony id={"testimony"}>
 
             <Container>
                 <StyledSectionTitle>Testimony</StyledSectionTitle>
