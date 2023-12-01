@@ -4,59 +4,54 @@ import {Link} from "components/Link";
 import {StatusPropsType} from "layout/section/works/Works";
 
 
- type MenuPropsType = {
-    item:TabMenuPropsType[]
-    filteredTabMenu:(type:StatusPropsType)=>void
-     currentFilterStatus:StatusPropsType
+type MenuPropsType = {
+    item: TabMenuPropsType[]
+    filteredTabMenu: (type: StatusPropsType) => void
+    currentFilterStatus: StatusPropsType
 }
 
 export type TabMenuPropsType = {
-    title:string,
-    type:StatusPropsType
+    title: string,
+    type: StatusPropsType
 }
 
 
-export const TabMenu:React.FC<MenuPropsType> = ({item,filteredTabMenu,currentFilterStatus,...props}) => {
+export const TabMenu: React.FC<MenuPropsType> = ({item, filteredTabMenu, currentFilterStatus, ...props}) => {
 
 
-
-
-    const onClickHandlerTabMenu = (type:StatusPropsType)=> {
+    const onClickHandlerTabMenu = (type: StatusPropsType) => {
         filteredTabMenu(type)
     }
-
 
 
     return (
         <StyledMenu>
             <ul>
-                {item.map((el,index)=>{
+                {item.map((el, index) => {
                     return (
 
-                        <li key={index}><Link  active={currentFilterStatus===el.type} as={"button"}  onClick={()=>onClickHandlerTabMenu(el.type)}>{el.title}</Link></li>
+                        <li key={index}><Link active={currentFilterStatus === el.type} as={"button"}
+                                              onClick={() => onClickHandlerTabMenu(el.type)}>{el.title}</Link></li>
 
                     )
                 })}
             </ul>
-
-
-
         </StyledMenu>
     );
 };
 
 
 const StyledMenu = styled.nav`
-  
-    ul {
-      
-      display: flex;
-      justify-content: space-between;
-      max-width: 352px;
-      width: 100%;
-      margin: 0 auto 40px;
-      border: 1px solid red;
-      
-    }
+
+  ul {
+
+    display: flex;
+    justify-content: space-between;
+    max-width: 352px;
+    width: 100%;
+    margin: 0 auto 40px;
+
+
+  }
 `
 

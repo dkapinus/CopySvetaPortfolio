@@ -3,7 +3,6 @@ import {Theme} from "styles/Theme";
 import {Link} from "react-scroll";
 
 
-
 //Mobile
 const BurgerButton = styled.button<{ isOpen: boolean }>`
   position: fixed;
@@ -41,6 +40,8 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
       ${props => props.isOpen && css<{ isOpen: boolean }>`
         transform: rotate(-45deg) translateY(0);
 
+        transition: ${Theme.animation.transition}
+
       `}
     }
 
@@ -71,25 +72,33 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   bottom: 0;
   background-color: rgba(31, 31, 32, 0.90);
   z-index: 9999999;
-  display: none;
-
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  `}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: 1.2s ease-in-out;
+  
   ul {
     display: flex;
     gap: 30px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 1.0s ease-in-out;
   }
+
+  ${props => props.isOpen && css<{ isOpen: boolean }>`
+    transform: translateY(0);
+    
+    & ul {
+      gap:50px;
+    }
+   
+  `}
 `
 
 const MobileMenu = styled.nav`
-  
+
 `
 
 
@@ -106,12 +115,14 @@ const Mask = styled.span`
   //outline: 1px solid red;
   color: ${Theme.colors.accent};
 
+
   & + & {
     top: 50%;
 
     span {
       display: inline-block;
       transform: translateY(-50%);
+
     }
   }
 `
@@ -119,9 +130,9 @@ const Mask = styled.span`
 
 const MenuItem = styled.li`
   position: relative;
-  
 
- 
+
+
 `
 
 const MenuLink = styled(Link)`
@@ -147,7 +158,7 @@ const MenuLink = styled(Link)`
 
   }
 
-  &:hover,&.active {
+  &:hover, &.active {
     &::before {
       transform: scale(1);
     }
@@ -167,19 +178,18 @@ const MenuLink = styled(Link)`
 //DesktopMenu
 
 const DesktopMenu = styled.nav`
-  
+
   ul {
     display: flex;
     gap: 30px;
     justify-content: center;
 
   }
-  
+
   @media ${Theme.media.tablet} {
     display: none;
   }
 `
 
 
-
-export const S ={BurgerButton,MobileMenuPopup,MobileMenu,Mask,MenuItem,MenuLink,DesktopMenu}
+export const S = {BurgerButton, MobileMenuPopup, MobileMenu, Mask, MenuItem, MenuLink, DesktopMenu}

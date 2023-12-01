@@ -15,27 +15,30 @@ export const Link = styled.a<{ active?: boolean }>`
 
 
   &:hover {
-        &::before {
-              height: 10px;   
-        }
-        
+    &::before {
+      height: 10px;
+      transition: ${Theme.animation.transition};
+    }
+
   }
 
-      &::before {
-            content: "";
-            display: inline-block;
-            flex-direction: column;
-            justify-content: center;
-            background-color: ${Theme.colors.accent};
+  &::before {
+    content: "";
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    background-color: ${Theme.colors.accent};
 
-            z-index: -1;
-            position: absolute;
-            bottom: 5px;
-            left: 0px;
-            right: 0px;
-            ${props => props.active && css <{active?:boolean}>`
-            height: 10px;
-      `}
 
-      }
+    z-index: -1;
+    position: absolute;
+    height: 0;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    ${props => props.active && css <{ active?: boolean }>`
+      height: 10px;
+    `}
+
+  }
 `

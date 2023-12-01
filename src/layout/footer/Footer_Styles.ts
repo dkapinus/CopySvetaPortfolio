@@ -48,6 +48,8 @@ const SocialLink = styled.a`
   background: rgba(255, 255, 255, 0.10);
   color: ${Theme.colors.accent};
 
+  transition: ${Theme.animation.transition};
+
   &:hover {
     background-color: ${Theme.colors.accent};
     color: ${Theme.colors.primaryBg};

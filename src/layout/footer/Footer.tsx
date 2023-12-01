@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from "components/icon/Icon";
 import {FlexWrapper} from "components/flexWrapper/FlexWrapper";
-import {S} from "layout/section/footer/Footer_Styles"
+import {S} from "layout/footer/Footer_Styles"
 
 
 const FooterData = ["instagram","telegram","vk","linkedin"]

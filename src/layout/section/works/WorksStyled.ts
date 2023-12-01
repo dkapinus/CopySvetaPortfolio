@@ -4,7 +4,8 @@ import {Theme} from "styles/Theme";
 import {Link} from "components/Link";
 import {Button} from "components/button/Button";
 
-const Works =styled.section`
+const Works = styled.section`
+  position: relative;
  
     ${FlexWrapper} {
       gap:30px;
@@ -38,15 +39,15 @@ const ImageWrapper = styled.div`
  
   position: relative;
 
-
-
-  ${Button}{
+  
+  ${Button} {
 
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
-    bottom: 50%;
+    transform: translate(-50%, -40% );
+    bottom: 40%;
     opacity: 0;
+    transition: ${Theme.animation.transition};
     &::before{
       height: 100%;
       width: 100%;
@@ -56,13 +57,14 @@ const ImageWrapper = styled.div`
   &::before {
     content: "";
     background: rgba(0, 0, 0, 0.30);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     opacity: 0;
+    transition: ${Theme.animation.transition};
   }
 
  
@@ -70,10 +72,13 @@ const ImageWrapper = styled.div`
   &:hover {
     &::before {
       opacity: 1;
+     
     }
 
     ${Button}{
       opacity: 1;
+      transform: translate(-50%, -50% );
+     
     }
 
   }
