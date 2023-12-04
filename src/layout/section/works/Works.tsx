@@ -7,6 +7,7 @@ import imageWork from "../../../../src/assets/images/Rectangle 14.png"
 import imageWork1 from "../../../../src/assets/images/Rectangle 14 (1).png"
 import {Container} from "components/Container";
 import {S} from "layout/section/works/WorksStyled"
+import {AnimatePresence, motion} from "framer-motion"
 
 
 export type StatusPropsType = "ALL" | "LANDING PAGE" | "REACT" | "SPA"
@@ -53,14 +54,29 @@ export const Works = () => {
                 <StyledSectionTitle>My Works</StyledSectionTitle>
                 <TabMenu item={WorksItem} filteredTabMenu={filteredTabMenu} currentFilterStatus={type} />
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
+                    <AnimatePresence>
                     {FilteredData.map((el, index) => {
                         return (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                key={index}
+                                layout={true}
+                                style={{
+                                    width: "330px",
+                                    flexGrow: 1,
+                                    maxWidth:"540px"
+                                }}
+                            >
                             <Work key={index} image={el.image} title={el.title} text={"Lorem ipsum dolor sit amet," +
                                 " consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore " +
                                 "magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}
-                                  type={el.type} />)
+                                  type={el.type} />
+                                </motion.div>
+                        )
                     })}
-
+                        </AnimatePresence>
                 </FlexWrapper>
             </Container>
         </S.Works>

@@ -19,8 +19,7 @@ const Works = styled.section`
 const Work = styled.div`
 
   background: ${Theme.colors.secondaryBg};
-  width: 330px;
-  flex-grow: 1;
+ 
 
 
   ${Link} {
@@ -30,9 +29,7 @@ const Work = styled.div`
       margin-left: 10px;
     }
   }
- @media ${Theme.media.desktop} {
-   max-width: 540px;
- }
+ 
 `
 
 const ImageWrapper = styled.div`
