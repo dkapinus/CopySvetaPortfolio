@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/CopySvetaPortfolio/static/css/main.b35cc6da.css",
+    "main.js": "/CopySvetaPortfolio/static/js/main.fbddd1de.js",
+    "static/js/787.25eaef86.chunk.js": "/CopySvetaPortfolio/static/js/787.25eaef86.chunk.js",
+    "static/media/photo_2023-10-16-15.23.22-_1_ (1).png": "/CopySvetaPortfolio/static/media/photo_2023-10-16-15.23.22-_1_ (1).e23c58113a98ef9a8b41.png",
+    "static/media/Rectangle 14.png": "/CopySvetaPortfolio/static/media/Rectangle 14.d65fbc1ad84868a4c7d9.png",
+    "static/media/Rectangle 14 (1).png": "/CopySvetaPortfolio/static/media/Rectangle 14 (1).94bcebb6d53abc5a51b4.png",
+    "static/media/icons-sprite.svg": "/CopySvetaPortfolio/static/media/icons-sprite.2907a8452a42e16f24c34bbf5cbaeff1.svg",
+    "index.html": "/CopySvetaPortfolio/index.html",
+    "main.b35cc6da.css.map": "/CopySvetaPortfolio/static/css/main.b35cc6da.css.map",
+    "main.fbddd1de.js.map": "/CopySvetaPortfolio/static/js/main.fbddd1de.js.map",
+    "787.25eaef86.chunk.js.map": "/CopySvetaPortfolio/static/js/787.25eaef86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b35cc6da.css",
+    "static/js/main.fbddd1de.js"
+  ]
+}
